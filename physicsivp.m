@@ -5,11 +5,13 @@ airflow = [10 0 0];%m s-1  direction: [x y z] where x=east,y=north,z=up
 aira = airflow(1);
 airb = airflow(2);
 airc = airflow(3);
-cd = 1.05; %for Boeing 747
+cd = 0.031; %for Boeing 747
+%cd = 0.47 % for sphere
+%cd = 1.05 % for cube
 objden = 2700; %kg m-3
 objvol = 0.012; %m3
 objm = objden*objvol; %should be kg
-grav = 10; %m s-2
+grav = 9.8; %m s-2
 param1 = [airden csa aira airb airc cd objden objvol objm grav];
 options1 = odeset('Events',@eventzer0,'RelTol',1e-8);
 f = @(t,y,par)[y(2);...
